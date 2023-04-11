@@ -1,0 +1,29 @@
+{
+  "name": "morawcik/lunar-payu",
+  "autoload": {
+    "psr-4": {
+      "Morawcik\\LunarPayu\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Rafal Morawiec",
+      "email": "rafal.morawiec@fibloo.com"
+    }
+  ],
+  "require": {
+    "openpayu/openpayu": "2.3.*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "lunar": {
+      "name": "Payu Payments"
+    },
+    "laravel": {
+      "providers": [
+        "Morawcik\\LunarPayu\\LunarPayuPaymentServiceProvider"
+      ]
+    }
+  }
+}
