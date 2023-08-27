@@ -61,6 +61,17 @@ class PayuPaymentType extends AbstractPayment
             'notes' => $description,
         ]);
 
+        $orderLines = $this->order->productLines;
+
+        foreach ($orderLines as $orderLine)
+        {
+            if ($orderLine->purchasable->purchasable != 'in_stock')
+                continue;
+
+            $orderLine->purchasable->stock -= $orderLine->quantity;
+            $orderLine->purchasable->save();
+        }
+
         return $orderPayu->redirectUri;
     }
 
